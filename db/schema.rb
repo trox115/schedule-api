@@ -10,11 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_30_205906) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_31_110422) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "allowed_times", force: :cascade do |t|
+    t.string "label"
+    t.integer "value"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "available_times", force: :cascade do |t|
+    t.string "name"
+    t.string "from"
+    t.string "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "time_intervals", force: :cascade do |t|
+    t.string "label"
+    t.integer "value"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "times", force: :cascade do |t|
     t.string "label"
     t.integer "value"
     t.integer "price"
