@@ -24,8 +24,8 @@ class WebhooksController < ApplicationController
       case event.type
       when 'checkout.session.completed'
         session = event.data.object
-        getId = event.data
-        converted = ActiveSupport::JSON.decode(getId)
+        converted = event.data
+        pp 'HEEeeeeeeeeeeeere'
         pp converted['payment_intent'];
         schedule = Schedule.find_by(userid: converted['payment_intent']);
         pp schedule
@@ -36,3 +36,5 @@ class WebhooksController < ApplicationController
       render json: { message: 'success' }
     end
   end
+
+  
