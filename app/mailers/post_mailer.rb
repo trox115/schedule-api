@@ -11,6 +11,6 @@ class PostMailer < ApplicationMailer
     @date = DateTime.parse(@user.date.strftime("%d/%m")
     @time =Date.strptime(@user.start,"%Y-%m-%d %H:%M:%S %Z").strftime("%H:%M")
 
-    mail(to: @user.email, subject: "Marcação dia: #{ date }")
+    mail(to: @user.email, subject: "Marcação dia: #{ @date }")
   end
 end
