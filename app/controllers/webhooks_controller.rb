@@ -24,11 +24,7 @@ class WebhooksController < ApplicationController
       case event.type
       when 'checkout.session.completed'
         session = event.data.object
-        converted = event.data
-        pp 'HEEeeeeeeeeeeeere'
-        pp converted;
-        schedule = Schedule.find_by(userid: converted['payment_intent']);
-        pp schedule
+        schedule = Schedule.find_by(userid: session['payment_intent']);
         schedule.confirmed = true
         schedule.save
       end
