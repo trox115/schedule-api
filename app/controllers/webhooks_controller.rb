@@ -24,9 +24,10 @@ class WebhooksController < ApplicationController
       case event.type
       when 'checkout.session.completed'
         session = event.data.object
-        pp session
-        # @product = Product.find_by(price: session.amount_total)
-        # @product.increment!(:sales_count)
+        converted = ActiveSupport::JSON.decode(@session.to_json)
+        schedule = Schedule.find_by(userid: converted['payment_intent']);
+        schedule.confirmed = true
+        schedule.save
       end
   
       render json: { message: 'success' }
