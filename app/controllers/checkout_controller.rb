@@ -2,7 +2,6 @@ class CheckoutController < ApplicationController
     protect_from_forgery with: :null_session
 
     def create
-        pp params
         date = DateTime.parse(params[:date]).strftime("%d/%m")
         interval = TimeInterval.find_by(value: params[:duration]);
 
@@ -20,9 +19,7 @@ class CheckoutController < ApplicationController
             mode: 'payment',
 })
     converted = ActiveSupport::JSON.decode(@session.to_json)
-    pp converted['id']
     Schedule.create(name: params[:name], start:params[:date], email:params[:email], end: params[:date], userid: converted['id']);
     render json: @session
-
     end
 end
