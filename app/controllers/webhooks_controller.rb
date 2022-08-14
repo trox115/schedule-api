@@ -26,7 +26,7 @@ class WebhooksController < ApplicationController
         session = event.data.object
         converted = event.data
         pp 'HEEeeeeeeeeeeeere'
-        pp converted['payment_intent'];
+        pp converted;
         schedule = Schedule.find_by(userid: converted['payment_intent']);
         pp schedule
         schedule.confirmed = true
