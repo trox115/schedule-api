@@ -6,8 +6,9 @@ class PostMailer < ApplicationMailer
   #   en.post_mailer.payment_submited.subject
   #
   def payment_submited
-    @greeting = "Hi"
+    @user = params[:user]
+    @greeting = "Olá"
 
-    mail to: "to@example.org"
+    mail(to: @user.email, subject: 'Nova Marcação')
   end
 end
