@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get '/content', to: 'content#index'
+  # resources :checkout, only: [:create]
+  post "checkout/create", to: "checkout#create"
 end
