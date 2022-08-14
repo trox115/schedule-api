@@ -1,5 +1,19 @@
 <h1>Nova Marcação</h1>
 
 <p>
-  <%= @greeting %>, <%= @user.name %>
+  <%= @greeting %>, <%= @user.name %>, a sua marcação encontra-se confirmada.
 </p>
+<table>
+<thead>
+<tr>
+<th>Dia</th><th>Hora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><%=@date%></td>
+<td><%= @time %></td>
+</tr>
+</tbody>
+</table>
+
