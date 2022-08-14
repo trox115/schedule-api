@@ -19,7 +19,7 @@ class CheckoutController < ApplicationController
             mode: 'payment',
 })
     converted = ActiveSupport::JSON.decode(@session.to_json)
-    Schedule.create(name: params[:name], start:params[:date], email:params[:email], end: params[:date], userid: converted['id']);
+    Schedule.create(name: params[:name], start:params[:date], email:params[:email], end: params[:date], userid: converted['payment_intent']);
     render json: @session
     end
 end
