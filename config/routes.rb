@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get '/content', to: 'content#index'
+  get '/schedules', to: 'content#schedule'
   # resources :checkout, only: [:create]
   post "checkout/create", to: "checkout#create"
   resources :webhooks, only: [:create]
