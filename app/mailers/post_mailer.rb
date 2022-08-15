@@ -8,9 +8,9 @@ class PostMailer < ApplicationMailer
   def payment_submited
     @user = params[:user]
     @greeting = "Olá"
-    @date = DateTime.parse(@user.date.strftime("%d/%m"))
-    # @time =Date.strptime(@user.start,"%Y-%m-%d %H:%M:%S %Z").strftime("%H:%M")
+    @date = @user.date.strftime("%d/%m")
+    @time =Time.parse(@user.start).strftime("%H:%M")
 
-    mail(to: @user.email, subject: "Marcação dia: #{ @date }")
+    mail(to: @user.email, subject: "Marcação dia: #{ @date } ás #{ @time }")
   end
 end
