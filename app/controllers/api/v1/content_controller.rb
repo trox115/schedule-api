@@ -1,4 +1,4 @@
-class ContentController < ApplicationController
+class Api::V1::ContentController < ApplicationController
 
     def index 
         @content = TimeInterval.all

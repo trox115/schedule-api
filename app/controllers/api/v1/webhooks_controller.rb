@@ -1,4 +1,4 @@
-class WebhooksController < ApplicationController
+class Api::V1::WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
   
     def create
