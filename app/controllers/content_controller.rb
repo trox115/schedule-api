@@ -10,6 +10,6 @@ class ContentController < ApplicationController
     def schedule
         @schedule = Schedule.all;
         newSchedule = @schedule.is_after(Date.today)
-        render json: newSchedule
+        render json: newSchedule, only: [:date, :id, :start, :end]
     end
 end
