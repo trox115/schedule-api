@@ -9,5 +9,15 @@ Rails.application.routes.draw do
       post "checkout/create", to: "checkout#create"
       resources :webhooks, only: [:create]
     end
+
+    namespace :v2 do
+      get '/content', to: 'content#index'
+      get '/schedules', to: 'content#schedule'
+      post "checkout/create", to: "checkout#create"
+      resources :webhooks, only: [:create]
+    end
   end
+
+  get '/content', to: 'test#index'
+  
 end
