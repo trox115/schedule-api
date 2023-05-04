@@ -2,5 +2,16 @@
 
 ---
 options:
+  bin-cd: true
+  cache: true
   label:
     fly_launch_runtime: rails
+  parallel: true
+  postgresql: true
+  precompile: build
+  packages:
+    deploy:
+    - procps
+    - net-tools
+    - traceroute
+    - iputils-ping

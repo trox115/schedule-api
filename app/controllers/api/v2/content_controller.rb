@@ -1,6 +1,4 @@
 class Api::V2::ContentController < ApplicationController
-    include Test
-
     def index 
         # @content = TimeInterval.all
         # availableTimes = AvailableTime.all

@@ -2,7 +2,11 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = "1.0"
+puts Rails.application.credentials.inspect
+puts Rails.application.credentials[Rails.env.to_sym].inspect
+puts Rails.application.credentials[:stripe][:secret]
 
+puts Rails.env.to_sym
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 

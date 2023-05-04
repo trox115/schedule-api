@@ -1,28 +1,8 @@
-# fly.toml file generated for marcacoes on 2023-03-25T11:05:01Z
+# fly.toml file generated for marcacoes on 2023-05-04T20:06:59+01:00
 
 app = "marcacoes"
-kill_signal = "SIGINT"
-kill_timeout = 5
 primary_region = "mad"
 
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
-
-[[services]]
-  protocol = "tcp"
-  internal_port = 3000
-  processes = ["app"]
-
-  [[services.ports]]
-    port = 80
-    handlers = ["http"]
-    force_https = true
-
-  [[services.ports]]
-    port = 443
-    handlers = ["tls", "http"]
-  [services.concurrency]
-    type = "connections"
-    hard_limit = 25
-    soft_limit = 20

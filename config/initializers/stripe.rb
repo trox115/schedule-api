@@ -1,3 +1,5 @@
-if Rails.application.credentials[:stripe][:secret]
-Stripe.api_key = Rails.application.credentials[:stripe][:secret]
+require 'stripe'
+
+if Rails.application.credentials.stripe
+    Stripe.api_key = Rails.application.credentials[:stripe][:secret]
 end
