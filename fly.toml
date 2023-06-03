@@ -1,7 +1,18 @@
-# fly.toml file generated for marcacoes on 2023-05-04T20:06:59+01:00
+# fly.toml app configuration file generated for lively-grass-9664 on 2023-06-03T22:36:09+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "marcacoes"
+app = "lively-grass-9664"
 primary_region = "mad"
+console_command = "/rails/bin/rails console"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
 
 [[statics]]
   guest_path = "/rails/public"
