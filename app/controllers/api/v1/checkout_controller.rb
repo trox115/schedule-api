@@ -7,9 +7,12 @@ class Api::V1::CheckoutController < ApplicationController
         startime = Time.parse(params[:time])
         endtime = startime + (interval.value).minutes
         name = params[:name].gsub!(/[^0-9A-Za-z]/, '')
+        pp params
        @session=  Stripe::Checkout::Session.create({
-            success_url: "http://localhost:3000/success?name=#{name}&email=#{params[:email]}",
-            cancel_url: "http://localhost:3000/cancel?name=#{name}",
+        # success_url: "http://localhost:3002/success?name=#{name}&email=#{params[:email]}",
+            # cancel_url: "http:/localhost:3002/cancel?name=#{name}",
+            success_url: "https://antoniofernandes.com/success?name=#{name}&email=#{params[:email]}",
+            cancel_url: "https://antoniofernandes.com/cancel?name=#{name}",
              line_items: [
                 {
                     name: "Marcação de #{interval.label} dia: #{ date }",
