@@ -27,7 +27,7 @@ class Api::V2::WebhooksController < ApplicationController
         schedule = Schedule.find_by(userid: session['payment_intent']);
         schedule.confirmed = true
         schedule.save
-        PostMailer.with(user: schedule).payment_submited.deliver_later
+        PostMailer.with(user: schedule).payment_submited
       end
   
       render json: { message: 'success' }
